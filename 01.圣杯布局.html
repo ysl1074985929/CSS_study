@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 
+        圣杯布局：
+            左右列固定，中间列先加载
+     -->
+     <style>
+     
+     *{
+         margin: 0;
+         padding: 0;
+     }
+
+     body{
+         /* 三倍左列宽 */
+         min-width: 600px;
+     }
+     /* 高度塌陷 */
+     .clearfix{
+         *zoom: 1;
+     }
+     .clearfix::after{
+         content: '';
+         display: block;
+         clear: both;
+     }
+
+     #header,
+     #footer{
+         background-color: steelblue;
+         text-align: center;
+         border: 1px solid black;
+     }
+
+     #content{
+         padding: 0 200px;
+         overflow: hidden;
+     }
+
+     #content>.middle,
+     #content>.left,
+     #content>.right{
+         float: left;
+         /* 等高布局 */
+         padding-bottom: 10000px;
+         margin-bottom: -10000px;
+     }
+     
+     #content>.left, 
+     #content>.right{
+         width: 200px;
+         background-color: sienna;
+         position: relative;
+     }
+   
+     #content>.middle{
+         width: 100%;
+         background-color: cadetblue;
+     }
+
+     #content>.left{
+         margin-left: -100%;
+         left: -200px;
+     }
+
+     #content>.right{
+         margin-left: -200px;
+         right: -200px;
+     }
+
+
+     </style>
+</head>
+<body>
+    <div id="header">header</div>
+    <div id="content" class="clearfix">
+        <div class="middle">
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+                brmiddle <br>
+             
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+</html>

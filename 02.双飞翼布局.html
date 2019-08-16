@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    body{
+        min-width: 600px;
+    }
+
+    /* 高度塌陷 */
+    .clearfix{
+        *zoom: 1;
+    }
+    .clearfix::after{
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    #header,
+    #footer {
+        border: 1px solid black;
+        text-align: center;
+        background-color: burlywood;
+    }
+
+    #content{
+        overflow: hidden;
+    }
+
+    #content>.middle,
+    #content>.left,
+    #content>.right{
+        float: left;
+        /* 等高 */
+        padding-bottom: 10000px;
+        margin-bottom: -10000px;
+    }
+
+    #content>.left,
+    #content>.right{
+        width: 200px;
+        background-color: slategray;
+    }
+    
+    #content>.middle{
+        width: 100%;
+        background-color: rgb(57, 112, 91);
+        text-align: center;
+    }
+
+    #content>.middle>.mid_inner{
+        padding: 0 200px;
+    }
+
+    #content>.left{
+        margin-left: -100%;
+    }
+
+    #content>.right{
+        margin-left: -200px;
+    }
+
+
+    
+    </style>
+</head>
+<body>
+    <div id="header">header</div>
+    <div id="content" class="clearfix">
+        <div class="middle">
+            <div class="mid_inner">
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+                    middle_inner <br>
+            </div>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+    <div id="footer">footer</div>
+</body>
+</html>
